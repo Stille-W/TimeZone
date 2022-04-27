@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<div class="footer">
+  <hr class="style-six" />
+  <p class="notice">
+    If there are any problems, <br/>
+    please feel free to contact me through Support →
+  </p>
+  <p class="rights">
+    ⓒ 2022 Shizuriyuki <br/>
+    All Rights Reserved.
+  </p>
+</div>

@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" >
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/timezone.css" >
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Laila:wght@400;500&family=Montserrat+Alternates:wght@400;500&family=Tapestry&display=swap" rel="stylesheet">
+<title>Time Zone Convert</title>
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+function log() {
+//	console.log('click')
+	fetch('${ pageContext.request.contextPath }/convert/')
+		.then(res => {
+	      if(!res.ok) {
+	    	  console.log(res.status);
+	          return res.text().then(text => { 
+	        	  console.log(text);
+	        	  alert('http error!\nstatus: '+res.status);
+	        	  throw new Error(text) });
+	         }
+	        else {
+	         console.log(res.text());
+	       }    
+	      })
+	    /*
+		.catch(function(error) {
+			console.log(error);
+			alert('There\'s something wrong.\n'+ error);
+		*/
+	})
+}
+</script>

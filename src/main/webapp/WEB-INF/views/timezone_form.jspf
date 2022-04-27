@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spform" uri="http://www.springframework.org/tags/form" %>  
+    
+<spform:form class="spform" method="post" modelAttribute="time"
+					action="${ pageContext.request.contextPath }/convert/">
+<fieldset class="form">
+	<legend class="formTitle">Time Zone Convert</legend>
+		<div class="forms">
+	      <div class="form_mid">
+	      	<input type="hidden" id="_method" name="_method" value="${ _method }"><p/>
+	        <div class="form_convert">
+	          <div class="select">
+		          	Current Time Zone : &nbsp; 
+		            <spform:select path="currTimeZone">
+						<spform:option class="defaultOpt" value="">-- Please choose an option --</spform:option>
+						 <div class="options">
+							<spform:options items="${ timeZones }" itemValue="sysName" itemLabel="name"/>
+						 </div>
+				 	</spform:select>
+			  </div><p/>
+		 	  <spform:errors path="currTimeZone" cssClass="error"/><p/>
+			 
+			  <div class="input_date">
+	           	 Date : &nbsp;
+            	<spform:input path="currTime.yyyy" value="2022"/>&nbsp; / &nbsp;
+		 	    <spform:input path="currTime.MM" placeholder="MM"/>&nbsp; / &nbsp;
+		 	    <spform:input path="currTime.dd" placeholder="dd"/>
+	 	      </div><p/>
+			  <spform:errors path="currTime.yyyy" cssClass="error"/><p/>
+			  <spform:errors path="currTime.MM" cssClass="error"/><p/>
+			  <spform:errors path="currTime.dd" cssClass="error"/><p/>
+		 	   
+			  <div class="input_time">
+             	Time : &nbsp;
+             	<spform:input path="currTime.h" placeholder="h"/>&nbsp; : &nbsp;
+		 	    <spform:input path="currTime.mm" placeholder="mm"/>&nbsp;&nbsp;
+		 	    <spform:radiobutton path="currTime.a" value="AM"/> AM &nbsp;
+		 	    <spform:radiobutton path="currTime.a" value="PM"/> PM
+	 	      </div><p/>
+			  <spform:errors path="currTime.h" cssClass="error"/><p/>
+			  <spform:errors path="currTime.mm" cssClass="error"/><p/>
+			  <spform:errors path="currTime.a" cssClass="error"/><p/>
+			  <div class="submit">
+				 <button onclick="log()" type="submit" class="btn">
+			        Convert
+			     </button>
+		      </div>
+		     <!-- 
+		      <spform:errors path="*" cssClass="error"/>
+		     -->
+			</div>
+		  </div>
+		</div>
+</fieldset>
+
+</spform:form>
