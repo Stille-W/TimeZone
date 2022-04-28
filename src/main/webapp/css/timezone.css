@@ -159,6 +159,25 @@ th {
   border: 1px solid #ffffff;
 }
 
+.delAllBtn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.delAllBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
 td {
   padding: 14px 20px;
   margin: 0;
@@ -203,12 +222,30 @@ tbody tr:hover {
   color: #ffffff;
 }
 
+.delBtn {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(102, 102, 102, 0.4);
+  background: transparent;
+  color: #666666;
+  font-family: 'Laila', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.delBtn:hover {
+  background: rgba(102, 102, 102, 0.3);
+  border: 2px solid rgba(102, 102, 102, 0);
+  cursor: pointer;
+}
+
 .conn {
   width: 90px;
   height: 90px;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 3%;
+  right: 3%;
   background: rgb(168,54,233);
   background: linear-gradient(45deg, rgba(168,54,233,1) 0%, rgba(99,143,230,1) 33%, rgba(182,238,82,1) 48%, rgba(215,27,27,1) 100%);
   box-shadow: 0px 0px 35px rgba(168,54,233,0.6);

@@ -18,6 +18,11 @@
 						<th>PDT/PST</th>
 						<th>JST</th>
 						<th>GMT+8</th>
+						<th>
+							<button onclick="delAll()" type="submit" class="delAllBtn">
+								Delete All
+							</button>
+						</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -30,6 +35,11 @@
 								<td>${ time.goalTimePDT }</td>
 								<td>${ time.goalTimeJST }</td>
 								<td>${ time.goalTimeGMT8 }</td>
+								<td>
+									<button onclick="del('${ status.index }')" type="submit" class="delBtn">
+										Delete
+									</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

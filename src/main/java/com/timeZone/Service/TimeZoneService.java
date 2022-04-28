@@ -71,6 +71,14 @@ public class TimeZoneService {
 		return nextSize > prevousSize;
 	}
 	
+	public synchronized Boolean delete(int index) {
+		if(index <0 || times.size() == 0 || index >= times.size()) {
+			return false;
+		}
+		times.remove(index);
+		return true;
+	}
+	
 	public String dateFormat(ZonedDateTime zDateTime) {
 		// Fri Jan 31 9:20 PM CST 2014
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE-MMM-dd h:mm a zzz", Locale.ENGLISH);

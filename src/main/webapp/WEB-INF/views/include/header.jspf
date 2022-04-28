@@ -30,7 +30,96 @@ function log() {
 		.catch(function(error) {
 			console.log(error);
 			alert('There\'s something wrong.\n'+ error);
-		*/
-	})
+		
+		})
+	      */
 }
+
+function del(index) {
+	$.ajax({
+		url: '../convert/' + index,
+		type: 'DELETE',
+		contentType:'text/html',
+		success: function(respData) {
+			console.log(respData);
+			console.log('del');
+			// 列表資料更新
+			table_list();
+		},
+		error: function(http, textStatus, errorThrown) {
+			console.log("http:" + http);
+			console.log("textStatus:" + textStatus);
+			console.log("errorThrown:" + errorThrown);
+			var errorInfoText = JSON.stringify(http)
+			console.log(errorInfoText.includes('REFERENCES'));
+			console.log(error);
+			alert('Failed to delete：' + textStatus);
+		}
+	});
+}
+
+function delAll() {
+	$.ajax({
+		url: '../convert/',
+		type: 'DELETE',
+		contentType:'text/html',
+		success: function(respData) {
+			console.log(respData);
+			console.log('delAll');
+			// 列表資料更新
+			table_list();
+		},
+		error: function(http, textStatus, errorThrown) {
+			console.log("http:" + http);
+			console.log("textStatus:" + textStatus);
+			console.log("errorThrown:" + errorThrown);
+			var errorInfoText = JSON.stringify(http)
+			console.log(errorInfoText.includes('REFERENCES'));
+			console.log(error);
+			alert('Failed to delete：' + textStatus);
+		}
+	});
+}
+
+function table_list() {
+	/*
+	var path = "../convert/";
+	
+	// 取得所有fund資料
+	// .後街的是jQuery系統的函式
+	$.get(path, function(datas, status) {
+		console.log(datas);
+		console.log(status);
+		// 清除目前 myTable上舊有資料
+		$('#spform tbody > tr').remove();
+	});
+	*/
+	$.ajax({
+		url: '../convert/',
+		type: 'GET',
+		success: function(datas, status) {
+			console.log(datas);
+			console.log('get');
+		},
+		error: function(http, textStatus, errorThrown) {
+			console.log("http:" + http);
+			console.log("textStatus:" + textStatus);
+			console.log("errorThrown:" + errorThrown);
+			var errorInfoText = JSON.stringify(http)
+			console.log(errorInfoText.includes('REFERENCES'));
+			alert('Failed to reset：' + textStatus);
+		}
+	});
+}
+</script>
+<script>
+$(document).ready(function(){
+	/**
+	 $(document).ready要比window.onload先執行。
+	 $(document).ready()是DOM結構繪製完畢後就執行，不必等到加載完畢，不需要等大型文件加載或者不存在的連接等耗時工作完成才執行，效率高。
+	 $(document).ready()和$(function(){})都是用於當頁面的標準DOM元素被解析成DOM樹後就執行內部函數。
+	 可以在js文件裏多次編寫的，多個都可以執行。對於多人共同編寫的js就有很大的優勢，因爲所有行爲函數都會執行到。
+	*/
+	console.log("$(document).ready(function(){}");
+	})
 </script>
