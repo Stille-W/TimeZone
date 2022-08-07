@@ -16,7 +16,7 @@
 		
 		<%@include file="timezone_list.jspf" %>
 		
-		 <button onclick="window.open('https://marshmallow-qa.com/y_vacc?utm_medium=url_text&utm_source=promotion', '_blank')" class="conn">
+		 <button onclick="window.open('https://marshmallow-qa.com/', '_blank')" class="conn">
 		 	Support
 		 </button>
 		
